@@ -12,7 +12,7 @@
 <body style="background-color: black;">
     
     
-    <form class="container-fluid  my-3" style="width: 60%;  background-color: rgb(255, 255, 255); border-radius: 4px; ;"   >
+    <form class="container-fluid  my-3" id="formulario" method="get" style="width: 60%;  background-color: rgb(255, 255, 255); border-radius: 4px; ;"   >
         
         <!--Encabezado-->
         <div class="row">
@@ -32,13 +32,13 @@
             
             <div class="form-group col-md-5 ">
                 <label for="inputEmail4 ">Card #</label>
-                <input type="email " class="form-control" id="inputEmail4" placeholder="XXXXXXXXXXXX">
+                <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="16"  class="form-control" id="inputEmail4" placeholder="XXXXXXXXXXXX" >
 
             </div>
 
             <div class="form-group col-md-3">
                 <label for="inputcvc#">CVC#</label>
-                <input type="CVC" class="form-control" id="inputcvc#" placeholder="0000">
+                <input type="password" maxlength="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" id="inputcvc#" placeholder="000">
             </div>
 
             <div class="form-group col-md-4">
@@ -53,14 +53,14 @@
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="firstName">First Name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="">
+                <input type="text" oninput="this.value = this.value.replace(/[^A-Za-z]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" id="firstName" placeholder=""  pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}">
             </div>
         
 
         
             <div class="form-group col-md-6">
                 <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" placeholder="">
+                <input type="text" oninput="this.value = this.value.replace(/[^A-Za-z]/g, '').replace(/(\..*)\./g, '$1');" class="form-control" id="lastName" placeholder="">
             </div>
         
         </div>
@@ -69,11 +69,11 @@
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
+                <input type="text" class="form-control" id="inputCity" oninput="this.value = this.value.replace(/[^A-Za-z]/g, '').replace(/(\..*)\./g, '$1');" >
               </div>
               <div class="form-group col-md-3">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
+                <label for="select">State</label>
+                <select id="select" class="form-control">
                   <option selected>Choose...</option>
                   <option value="1">One</option>
                     <option value="2">Two</option>
@@ -129,9 +129,9 @@
 
             <div class="col-md-6">
               <label for="texarea">We accept:</label>
-              <div class="input-group-prepend" id="texarea" >
-                <span class="input-group-text align-items-start" style="height: 8rem;"></span>
-              </div>
+              <div class="col-md-12" >
+              <textarea class=" col-md-12 input-group-text align-item-left " style="height: 8rem; ; "></textarea>
+            </div>
               <label >Add any notes here</label>
             </div>
 
@@ -146,7 +146,7 @@
               <div class="d-flex justify-content-end p-2">
                 
                   <button type="button " class="btn btn-secondary btn-sm mx-2" >Cancel</button>
-                  <button type="button" class="btn btn-primary btn-sm ">Send</button>
+                  <button type="submit" form="form1"  value="Input submit button" class="btn btn-primary btn-sm ">Send</button>
                 
                 
               </div>
